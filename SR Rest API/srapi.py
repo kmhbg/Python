@@ -1,4 +1,8 @@
 """
+Wrapper for the SR.se api the Swedish radio service
+
+API:  https://sverigesradio.se/api/documentation/v2/index.html
+
 Todo: implement VMA
 Todo vma = "http://api.sr.se/api/v2/vma?format=json"
 DONE music = "http://api.sr.se/api/v2/playlists/rightnow?channelid=2576&format=json"
@@ -8,6 +12,12 @@ import requests
 
 
 class SrPlaylist(object):
+    """
+    Fetches data from radio station playlist
+    - Current playing song
+    - Previous song
+    - Songinfo
+    """
     def __init__(self,api_url):
         '''Insert SR api URL example: http://api.sr.se/api/v2/playlists/rightnow?channelid=2576&format=json'''
         self.api_url = api_url
@@ -36,4 +46,7 @@ class SrPlaylist(object):
         return info
 
 class srVma(SrPlaylist):
+    """
+    Get importent messages for the public
+    """
     pass

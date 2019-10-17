@@ -19,6 +19,6 @@ Example will show previous song played on SR P3
 
 #### Todo:
 
-1. Adding support for SR VMA (Important message for society)
+1. Adding support for SR VMA (Important messages for the public)
 2. Add support for music top lists
 3. Get current playing song
