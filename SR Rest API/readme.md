@@ -8,14 +8,14 @@ pip install requests
 #### Simple usage:
 
 Example will show previous song played on SR P3
-<code>
-import srapi
 
-data = srapi.SrData("http://api.sr.se/api/v2/playlists/rightnow?channelid=2576&format=json")
+    import srapi
 
-data.songInfo()
+    data = srapi.SrData("http://api.sr.se/api/v2/playlists/rightnow?channelid=2576&format=json")
 
-</code>
+    data.songInfo()
+
+
 
 #### Todo:
 
