@@ -7,7 +7,7 @@ DONE music = "http://api.sr.se/api/v2/playlists/rightnow?channelid=2576&format=j
 import requests
 
 
-class SrData:
+class SrPlaylist(object):
     def __init__(self,api_url):
         '''Insert SR api URL example: http://api.sr.se/api/v2/playlists/rightnow?channelid=2576&format=json'''
         self.api_url = api_url
@@ -35,4 +35,5 @@ class SrData:
         info = print(" Artist: %s \n Låt: %s \n Kompositör: %s \n Skivbolag: %s"%(self.trackInfo()[0],self.trackInfo()[1],self.trackInfo()[2],self.trackInfo()[3]))
         return info
 
-
+class srVma(SrPlaylist):
+    pass
