@@ -7,6 +7,9 @@ Simple loginsystem with CSV database and hased passwords
 Passlib:
     $ pip install passlib
 
+Pandas:
+    $ pip install pandas
+
 
 
 
