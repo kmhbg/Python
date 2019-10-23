@@ -16,25 +16,30 @@ class User:
         return ("Welcome %s, you are now loggedin"%(self.username))
 
 def menu():
+    """Main menu"""
     print(""" 
         Welcome!
         Make a choice below
         1.  Sign in
-        2. 
+        2.  Create user
     
     """)
+    choise = input("Choose an item in the menu")
 
 def hashPassword(password):
+    """Hash the password to protect it in the CSV file"""
     hash = pbkdf2_sha256.hash(password, rounds=20000, salt_size=16)
     return hash
     
 def deHashPassword(password, hash):
+    """Used for verifying user"""
     return pbkdf2_sha256.verify(password, hash)
 
 
 
 
 def login():
+    """Main login function"""
     loginCount = 0
     for retry in range(3):
         u = input("Enter username: ")
@@ -78,6 +83,7 @@ def checkDatabase(column, typeOfEntry):
                 
    
 def getIndex(user, password):
+    """Gets the password for user with index"""
     while True:
         for u in readCsv["username"]:
         
@@ -93,23 +99,6 @@ def getIndex(user, password):
                     return False
 
     
-"""  def getIndex(user, password):
-    while True:
-        for u in readCsv["username"]:
-        
-            if u == user:
-                get = readCsv.index[readCsv["username"] == user].tolist()
-
-                if password == readCsv.iat[get[0],1]:
-                    print("logged in")
-                    return True
-                    
-                else:
-                    print("Error wrong user or password")
-                    return False
-
-      """  
-
 
 
 def readDatabase():
