@@ -22,9 +22,18 @@ def menu():
         Make a choice below
         1.  Sign in
         2.  Create user
+        3.  Read Database
     
     """)
-    choise = input("Choose an item in the menu")
+    choice = input("Choose an item in the menu: ")
+    if choice == "1":
+        login()
+    elif choice == "2":
+        createUser()
+    else:
+        print(readDatabase())
+
+
 
 def hashPassword(password):
     """Hash the password to protect it in the CSV file"""
@@ -105,8 +114,6 @@ def readDatabase():
     result = pd.read_csv(database)
     return result
 
-menu()
-#getIndex("test","1")
-#login()
-#hashPassword("test")
-#createUser()
+if __name__ == "__main__":
+    menu()
+
