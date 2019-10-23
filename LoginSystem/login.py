@@ -3,7 +3,7 @@ import pandas as pd
 from getpass import getpass
 from passlib.hash import pbkdf2_sha256
 
-database = "d:/python/users.csv"
+database = "users.csv"
 readCsv = pd.read_csv(database)
 
 class User:
@@ -74,11 +74,12 @@ def createUser():
     newUser = User(username, hashPassword(password), email)
     data = {"username": [newUser.username],"password": [newUser.password], "email":[newUser.email]}
     df = DataFrame(data, columns=["username", "password", "email"])
-    df.to_csv(r"d:/python/users.csv", index = None, header=False, mode="a")
+    df.to_csv(r"users.csv", index = None, header=False, mode="a")
     
 
 def checkDatabase(column, typeOfEntry):
-    """Checking the database for if the desired entry exist"""
+    """Checking the database for if the desired entry exist
+        Args: Column is the column in the csv, typeOfEntry is placeholder text for the input statement"""
     data = input("Enter desired %s: "%(typeOfEntry))
     for user in readCsv[column]:
         while True:    

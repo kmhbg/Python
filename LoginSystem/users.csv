@@ -1,2 +1,4 @@
 username,password,email
 nille,$pbkdf2-sha256$20000$9z6nFGLsXct5L.WckzIGoA$PzaT3r.kf/tjAKkJCYy2VooV0sdnRZ50qQ7Q9I671T0,sebastian.nilsson@melitta.se
+test,$pbkdf2-sha256$20000$GUNoLcV4T0mplVKKcS7FOA$wxmmBW0REP3.i1Px5fv1Qa9dW3w9AmIIjk6KMW9RHB4,test@test.se
+kalle,$pbkdf2-sha256$20000$sBZCqPUeA.A8R.h9j3FuTQ$eQVGV1/O3RaRsUl/YeAPXM3p4eL01AZwZZCzIiikFCk,1@1.se
