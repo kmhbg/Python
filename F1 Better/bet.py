@@ -12,13 +12,9 @@ import requests
 import json
 BASE_URL = 'http://ergast.com/api/f1'
 
-def get_soup(url):
-    """Request the URL and return response as BeautifulSoup object or None."""
-
-    return BeautifulSoup(res, 'lxml')
 
 def get_race_results():
-    url = "http://ergast.com/api/f1/current/last/results.json"
+    url = "%s/current/last/results.json"%(BASE_URL)
     r = requests.get(url)
     final = []
     if r.status_code == 200:
