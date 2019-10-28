@@ -25,10 +25,19 @@ def Main():
             1. Add player
             2. Show Players
             3. Show specific player
+            4. Get pot
             """)
     choice = input("Choose a menuitem: ")
     if choice == "1":
         addPlayer()
+    elif choice == "2":
+        getPlayers()
+    elif choice == "3":
+        pass
+    elif choice == "4":
+        with conn:
+            print("The pot is %s kr at the moment"%(bet.Bet.select_pot(conn)))
+
 
 def addPlayer():
     name = input("Whats your name: ")
@@ -37,7 +46,7 @@ def addPlayer():
     p1 = input("Who comes first?")
     p2 = input("Who comes second?")
     p3 = input("Who comes third?")
-    savePlayer(name, bet, p1,p2,p3)
+    savePlayer(name, bet, p1.upper(),p2.upper(),p3.upper())
 def savePlayer(name, theBet, p1, p2, p3):
     
 

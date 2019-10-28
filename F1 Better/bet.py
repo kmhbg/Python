@@ -118,7 +118,6 @@ class Bet:
         cur.execute(sql, better)
         return cur.lastrowid
     @classmethod
-
     def select_all(self,conn, table, player):
         """
         Query all rows in the tasks table
@@ -134,6 +133,21 @@ class Bet:
         for row in rows:
             print(row)
             return output.append(row)
+    @classmethod
+    def select_pot(self, conn):
+        """
+        Get sum of bets
+        
+        :return: um
+        """
+     
+        cur = conn.cursor()
+        cur.execute("SELECT SUM(bet) FROM betters")
+    
+        pot = cur.fetchall()
+    
+        return pot[0][0]
+    
 
 
 
