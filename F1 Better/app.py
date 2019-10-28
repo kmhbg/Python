@@ -15,13 +15,30 @@ if os.path.isfile("betters.db") != True:
             p3 text
         );""") 
 else:
+    conn = bet.Bet.create_connection("betters.db")
     print("Database exist!")
 
 
 
+def Main():
+    print("""Choose
+            1. Add player
+            2. Show Players
+            3. Show specific player
+            """)
+    choice = input("Choose a menuitem: ")
+    if choice == "1":
+        addPlayer()
 
-
-def addPlayer(name, theBet, p1, p2, p3):
+def addPlayer():
+    name = input("Whats your name: ")
+    bet = input("How much do you want to bet 1-500 kr")
+    print("Use the driver code for the top three example HAM for Hamilton")
+    p1 = input("Who comes first?")
+    p2 = input("Who comes second?")
+    p3 = input("Who comes third?")
+    savePlayer(name, bet, p1,p2,p3)
+def savePlayer(name, theBet, p1, p2, p3):
     
 
     with conn:
@@ -32,11 +49,23 @@ def addPlayer(name, theBet, p1, p2, p3):
         del better
 
 
-""" def getPlayers():
-    players = pickle.load(open("bet_data.pk1", 'rb'))
-    return players
- """
+def getPlayers():
+    #conn = bet.Bet.create_connection("betters.db")
+    with conn:
+        getAll = bet.Bet.select_all(conn, "betters", "*")
+        return getAll
+
+def getPlayer(name):
+    #conn = bet.Bet.create_connection("betters.db")
+    with conn:
+        getAll = bet.Bet.select_all(conn, "betters", name)
+        return getAll
+
 
 
 #better1.checkBets()
-addPlayer("Filip", 200, "HAM", "BOT", "VET")
+#addPlayer("Filip", 200, "HAM", "BOT", "VET")
+print(getPlayer("*"))
+
+if __name__=="__main__":
+    Main()

@@ -119,7 +119,7 @@ class Bet:
         return cur.lastrowid
     @classmethod
 
-    def select_all_tasks(self,conn, table):
+    def select_all(self,conn, table, player):
         """
         Query all rows in the tasks table
         :param conn: the Connection object
@@ -127,7 +127,7 @@ class Bet:
         """
         output = []
         cur = conn.cursor()
-        cur.execute("SELECT * FROM %s"%(table))
+        cur.execute("SELECT * FROM %s WHERE name = 'Filip'"%(table))
     
         rows = cur.fetchall()
     
